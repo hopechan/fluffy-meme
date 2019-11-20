@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { CrudService } from "../../services/crud.service";
+import { Sensores } from "../../models/sensores";
 
 @Component({
     selector: 'dashboard-cmp',
@@ -9,8 +10,8 @@ import { Observable } from 'rxjs';
 })
 
 export class DashboardComponent implements OnInit{
-
-  public data: Observable<any[]>;
+  public data = []
+  public finalData = []
   settings = {
     columns: {
       fecha: {
@@ -19,16 +20,25 @@ export class DashboardComponent implements OnInit{
       hora: {
         title: 'Hora'
       },
-      Temperatura: {
+      temperatura: {
         title: 'Temperatura'
       }
     }
   };
 
-  constructor(db: AngularFirestore) {
-    this.data = db.collection('/data').valueChanges();
+  constructor(private crud: CrudService) {}
+  getData(){
+    this.crud.getAll()
   }
-  
+
   ngOnInit(){
+    console.log(this.crud.getAll().subscribe(item => {
+      this.data = item.map(i => {
+        return{
+          id: i.payload.doc.id,
+          ...i.payload.doc.data()
+        } as Sensores
+      })
+    }))
   }
 }
