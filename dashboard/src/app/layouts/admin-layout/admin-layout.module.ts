@@ -13,6 +13,9 @@ import { IconsComponent }           from '../../pages/icons/icons.component';
 import { MapsComponent }            from '../../pages/maps/maps.component';
 import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
 import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Ng2CompleterModule } from "ng2-completer";
+import { CrudService } from "../../services/crud.service";
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,7 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
+    Ng2SmartTableModule,
+    Ng2CompleterModule,
   ],
   declarations: [
     DashboardComponent,
@@ -32,7 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-  ]
+  ],
+  providers:[CrudService]
 })
 
 export class AdminLayoutModule {}
