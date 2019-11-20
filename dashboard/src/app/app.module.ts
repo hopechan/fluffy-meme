@@ -10,11 +10,12 @@ import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Ng2CompleterModule } from "ng2-completer";
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
@@ -30,6 +31,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
       useHash: true
     }),
     Ng2SmartTableModule,
+    Ng2CompleterModule,
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
