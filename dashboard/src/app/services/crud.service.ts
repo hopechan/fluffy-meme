@@ -10,23 +10,23 @@ export class CrudService {
     private firestore: AngularFirestore
   ) {}
 
-  public createCat(data: any) {
+  public createData(data: any) {
     return this.firestore.collection('data').add(data);
   }
 
-  public getCat(documentId: string) {
+  public getData(documentId: string) {
     return this.firestore.collection('data').doc(documentId).snapshotChanges();
   }
 
-  public getCats() {
+  public getAll() {
     return this.firestore.collection('data').snapshotChanges();
   }
 
-  public updateCat(documentId: string, data: any) {
+  public updateData(documentId: string, data: any) {
     return this.firestore.collection('data').doc(documentId).set(data);
   }
 
-  public deleteCat(documentId: string) {
+  public deleteData(documentId: string) {
     return this.firestore.collection('data').doc(documentId).delete();
   }
 }
