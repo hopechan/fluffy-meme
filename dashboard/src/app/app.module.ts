@@ -11,6 +11,11 @@ import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
+
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 
@@ -28,7 +33,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
