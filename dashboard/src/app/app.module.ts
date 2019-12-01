@@ -18,12 +18,14 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Ng2CompleterModule } from "ng2-completer";
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
